@@ -1,10 +1,12 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
 
-export default function APP(){
-  return(
+
+export default function APP() {
+ 
+  return (
     <View>
-      <Text>Hello Shivam</Text>
+      <Text>Hello Mr Shivam</Text>
     </View>
   )
 }
