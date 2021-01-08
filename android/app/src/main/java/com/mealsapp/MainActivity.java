@@ -1,4 +1,4 @@
-package com.react_native_meals_app;
+package com.mealsapp;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "React_Native_Meals_App";
+    return "MealsApp";
   }
 }
