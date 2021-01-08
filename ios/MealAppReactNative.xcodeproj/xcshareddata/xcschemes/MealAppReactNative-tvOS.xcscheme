@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "MealsApp-tvOS.app"
-               BlueprintName = "MealsApp-tvOS"
-               ReferencedContainer = "container:MealsApp.xcodeproj">
+               BuildableName = "MealAppReactNative-tvOS.app"
+               BlueprintName = "MealAppReactNative-tvOS"
+               ReferencedContainer = "container:MealAppReactNative.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "MealsApp-tvOSTests.xctest"
-               BlueprintName = "MealsApp-tvOSTests"
-               ReferencedContainer = "container:MealsApp.xcodeproj">
+               BuildableName = "MealAppReactNative-tvOSTests.xctest"
+               BlueprintName = "MealAppReactNative-tvOSTests"
+               ReferencedContainer = "container:MealAppReactNative.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "MealsApp-tvOS.app"
-            BlueprintName = "MealsApp-tvOS"
-            ReferencedContainer = "container:MealsApp.xcodeproj">
+            BuildableName = "MealAppReactNative-tvOS.app"
+            BlueprintName = "MealAppReactNative-tvOS"
+            ReferencedContainer = "container:MealAppReactNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "MealsApp-tvOS.app"
-            BlueprintName = "MealsApp-tvOS"
-            ReferencedContainer = "container:MealsApp.xcodeproj">
+            BuildableName = "MealAppReactNative-tvOS.app"
+            BlueprintName = "MealAppReactNative-tvOS"
+            ReferencedContainer = "container:MealAppReactNative.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
