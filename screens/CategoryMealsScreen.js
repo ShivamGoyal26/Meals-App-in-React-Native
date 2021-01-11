@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, Text } from 'react-native';
 
-import { CATEGORIES, MEALS } from '../data/dummy-data';
+import {CATEGORIES, MEALS } from '../data/dummy-data';
 import MealItem from '../components/MealItem';
+import Header from '../shared/header';
 
 
 const CategoryMealScreen = (props) => {
+    const catid = props.route.params.catgoryId;
+    const CustomHeaderText = props.route.params.title;
+
+    const selectedCategory = CATEGORIES.find(cat => cat.id ===catid.catgoryId);
 
     const renderMealItem = itemData => {
         return <MealItem title={
@@ -22,7 +27,7 @@ const CategoryMealScreen = (props) => {
         />;
     };
 
-    const catid = props.route.params.catgoryId;
+    // const catid = props.route.params.catgoryId;
 
     // const selectedCategory = CATEGORIES.find(cat => cat.id ===catid.catgoryId);
 
@@ -32,24 +37,19 @@ const CategoryMealScreen = (props) => {
 
 
     return (
+        <View style = {styles.wrapper}>
+        <Header titleText={CustomHeaderText}/>
         <View style={styles.screen}>
-            <FlatList data={displayedMeals}
-                keyExtractor={(item, index) => item.id}
-                renderItem={renderMealItem}
-                style={{ width: '100%' }}
-            />
-        </View>
+        <FlatList data={displayedMeals}
+            keyExtractor={(item, index) => item.id}
+            renderItem={renderMealItem}
+            style={{ width: '100%' }}
+        />
+    </View></View>
+        
     );
 };
 
-CategoryMealScreen.navigationOptions = (navigationData) => {
-    const catid = navigationData.route.params;
-    const selectedCategory = CATEGORIES.find(cat => cat.id === catid.catgoryId);
-    return {
-        headerTitle: selectedCategory.title,
-    };
-
-};
 
 
 const styles = StyleSheet.create({
@@ -57,6 +57,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    wrapper: {
+        flex: 1,
+        flexDirection: 'column',
     },
 });
 

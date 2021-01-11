@@ -2,10 +2,13 @@ import React from 'react';
 import {
     StyleSheet,
     FlatList,
+    View,
 } from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
+
+import Header from '../shared/header';
 
 
 
@@ -16,11 +19,9 @@ const CategoriesScreen = props => {
             <CategoryGridTile
                 title={itemData.item.title}
                 onSelect={() => {
-                    // props.navigation.setOptions({title: itemData.item.name})
                     props.navigation.navigate('Category', {
-                        // navigation.setOptions({title: itemData.item.name})
-                        // name: itemData.item.name,
                         catgoryId: itemData.item.id,
+                        title: itemData.item.title,
                     });
                 }}
                 color={itemData.item.color}
@@ -29,11 +30,15 @@ const CategoriesScreen = props => {
     };
 
     return (
-        <FlatList
-            keyExtractor={(item, index) => item.id}
-            data={CATEGORIES}
-            renderItem={renderGridItem}
-            numColumns={2} />
+        <View style={styles.wrapper}>
+            <Header titleText="Meals App" />
+            <FlatList
+                keyExtractor={(item, index) => item.id}
+                data={CATEGORIES}
+                renderItem={renderGridItem}
+                numColumns={2} />
+        </View>
+
     );
 };
 
@@ -42,6 +47,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    wrapper: {
+        flex: 1,
+        flexDirection: 'column',
     },
 
 });
