@@ -8,7 +8,7 @@ import {
 import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
 
-import Header from '../shared/header';
+import MainHeader from '../shared/MainHeader';
 
 
 
@@ -31,7 +31,7 @@ const CategoriesScreen = props => {
 
     return (
         <View style={styles.wrapper}>
-            <Header titleText="Meals App" />
+            <MainHeader titleText="Meals App" />
             <FlatList
                 keyExtractor={(item, index) => item.id}
                 data={CATEGORIES}

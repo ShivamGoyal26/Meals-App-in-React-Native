@@ -38,8 +38,8 @@ const MealItem = props => {
 const styles = StyleSheet.create({
     wrapper: {
         padding: 10,
-        marginVertical: 25,
-    },
+        marginBottom: 25,
+    }, 
     mealHeader: {
         height: '85%',
     },
