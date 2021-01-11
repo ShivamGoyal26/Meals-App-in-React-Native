@@ -28,7 +28,7 @@ const MealsNavigator = () => <NavigationContainer>
             } 
 
         />
-        <Stack.Screen name="Meal Detail" component={MealDetailScreen}  options={{ title: 'Meal Detail' }}/>
+        <Stack.Screen name="MealDetail" component={MealDetailScreen}  options={{ title: 'Meal Detail' }}/>
     </Stack.Navigator>
 </NavigationContainer>
 
