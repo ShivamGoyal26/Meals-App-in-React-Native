@@ -1,36 +1,46 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 
-import { CATEGORIES } from '../data/dummy-data';
+import { CATEGORIES, MEALS } from '../data/dummy-data';
+import MealItem from '../components/MealItem';
 
 
 const CategoryMealScreen = (props) => {
-const catid = props.route.params;
 
-const selectedCategory = CATEGORIES.find(cat => cat.id ===catid.catgoryId);
+    const renderMealItem = itemData => {
+        return <MealItem title={
+            itemData.item.title}
+            onSelect={() => { }}
+            duration={itemData.item.duration}
+        />;
+    };
+
+    const catid = props.route.params.catgoryId;
+
+    // const selectedCategory = CATEGORIES.find(cat => cat.id ===catid.catgoryId);
+
+    const displayedMeals = MEALS.filter(
+        meal => meal.categoryIds.indexOf(catid) >= 0
+    );
+
 
     return (
         <View style={styles.screen}>
-            <Text>The Catgory Meal Screen</Text>
-            <Text>{selectedCategory.title}</Text>
-            <Button title="Go to the Meals " onPress={
-                () => 
-                    props.navigation.navigate('Meal Detail')
-            } />
-            <Button title={catid.catgoryId} onPress={() => {
-                props.navigation.pop();
-
-            }} />
+            <FlatList data={displayedMeals}
+                keyExtractor={(item, index) => item.id}
+                renderItem={renderMealItem}
+                style={{ width: '100%' }}
+            />
         </View>
     );
 };
 
 CategoryMealScreen.navigationOptions = (navigationData) => {
-        const catid = navigationData.route.params;
-        const selectedCategory = CATEGORIES.find(cat => cat.id ===catid.catgoryId);
-        return {
-            headerTitle: selectedCategory.title,
-        };
+    const catid = navigationData.route.params;
+    const selectedCategory = CATEGORIES.find(cat => cat.id === catid.catgoryId);
+    return {
+        headerTitle: selectedCategory.title,
+    };
 
 };
 
