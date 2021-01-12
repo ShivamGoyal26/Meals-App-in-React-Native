@@ -20,15 +20,15 @@ const FavoritesScreen = props => {
             image={itemData.item.imageUrl}
         />;
     };
-    const displayedMeals = MEALS.filter(
-        meal => meal.categoryIds.indexOf('c2') >= 0
+    const favMeals = MEALS.filter(
+        meal => meal.id === 'm1' || meal.id === 'm2'
     );
     return (
         <View style={styles.screen}>
         <FavoriteHeader titleText="Your Favorites"/>
             
             <View style={styles.nestedScreen}>
-                <FlatList data={displayedMeals}
+                <FlatList data={favMeals}
                     keyExtractor={(item, index) => item.id}
                     renderItem={renderMealItem}
                     style={{ width: '100%' }}
@@ -43,7 +43,6 @@ const FavoritesScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        // flexDirection: 'row',
     },
     nestedScreen: {
         flex: 1,

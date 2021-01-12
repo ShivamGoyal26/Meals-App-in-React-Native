@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constants/Colors';
 
@@ -7,17 +7,13 @@ const MainHeader = props => {
     return(
         <View style={styles.header}>
         <View style={styles.menu}><Icon name='md-menu' size={26} color={'white'} onPress={null} /></View>
-        {/* <View><Button title = "Drawer" onPress={() => {
-                props.navigation.popToTop();
-            }} /></View> */}
+        
             
-        <View>
+        <View style={styles.alginit}>
             <Text style={styles.headerText}>{props.titleText}</Text>
         </View>
-        {/* <View><Button title = "Fav" onPress={() => {
-                props.navigation.popToTop();
-            }} /></View> */}
-            <View style={styles.favorite}><Icon name='ios-heart' size={26} color={'white'} onPress={null} /></View>
+        <View style={styles.menu}></View>
+            
         </View>
     );
 };
@@ -26,29 +22,34 @@ const styles = StyleSheet.create({
     header: {
         
         backgroundColor: Colors.primaryColor,
-        elevation: 10,                   // elevation problem
+        elevation: 10,                 
         width: '100%',
         height: '10%',
         flexDirection: 'row',    
-        alignItems: 'center',   
         justifyContent: 'space-between',
+  
         shadowColor: '#000000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.9,
         shadowRadius: 3, 
     },
     headerText: {
+        
         fontWeight: 'bold',
         fontSize: 20,
         color: 'white',
         letterSpacing: 1,
+        
     },
-    favorite:{
-        padding: 10,
-    },
+  
     menu:{
         padding: 10,
     },
+    alginit: {
+        
+        justifyContent: 'center',
+    },
+    
 });
 
 export default MainHeader;

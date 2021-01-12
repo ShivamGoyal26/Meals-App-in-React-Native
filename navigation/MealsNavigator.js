@@ -31,12 +31,12 @@ const MealsNavigator = () =>
 
 const Tab = createMaterialBottomTabNavigator();
 
-const MyTabs = () =>
+const MyTabs = () => 
 
     <NavigationContainer>
         <Tab.Navigator
-            activeColor={Colors.primaryColor}
-            inactiveColor={Colors.accentColor}
+            activeColor={Colors.accentColor}
+            inactiveColor={Colors.primaryColor}
             barStyle={{ backgroundColor: 'white' }}
         >
             <Tab.Screen name="Home"
