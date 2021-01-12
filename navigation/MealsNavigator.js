@@ -8,6 +8,8 @@ import CategoryMealScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import Colors from '../constants/Colors';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Filters from '../screens/FiltersScreen';
 
 const Stack = createStackNavigator();
 
@@ -33,7 +35,7 @@ const Tab = createMaterialBottomTabNavigator();
 
 const MyTabs = () => 
 
-    <NavigationContainer>
+    
         <Tab.Navigator
             activeColor={Colors.accentColor}
             inactiveColor={Colors.primaryColor}
@@ -62,9 +64,18 @@ const MyTabs = () =>
                 }}
             />
         </Tab.Navigator>
+ 
+
+
+const MainNavigator = createDrawerNavigator();
+
+const CustomDrawer = () =>
+<NavigationContainer>
+    <MainNavigator.Navigator>
+        <MainNavigator.Screen name="MainScreen" component={MyTabs} options={{ headerShown: false }} />
+        <MainNavigator.Screen name="Filters" component={Filters} options={{ headerShown: false }} />
+       
+    </MainNavigator.Navigator>
     </NavigationContainer>
 
-
-
-
-export default MyTabs;
+export default CustomDrawer;

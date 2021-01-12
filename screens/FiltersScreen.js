@@ -1,9 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import FilterHeader from '../shared/FilterHeader';
 
 const FiltersScreen = props => {
     return (
         <View style={styles.screen}>
+            <FilterHeader titleText='Filters' onSelect={() => {
+                props.navigation.toggleDrawer();
+            }} />
             <Text>The Filters Screen</Text>
         </View>
     );
@@ -12,8 +16,6 @@ const FiltersScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
 });
 

@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constants/Colors';
 
-const MainHeader = props => {
+const FilterHeader = props => {
     return(
         <View style={styles.header}>
         <View style={styles.menu}><Icon name='md-menu' size={26} color={'white'} onPress={props.onSelect} /></View>
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
     
 });
 
-export default MainHeader;
+export default FilterHeader;
