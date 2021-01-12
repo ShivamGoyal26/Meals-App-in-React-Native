@@ -12,7 +12,6 @@ const Header = props => {
         <View>
             <Text style={styles.headerText}>{props.titleText}</Text>
         </View>
-        {/* <View><Button title = "Fav" onPress={props.onSelect} /></View> */}
         <View style={styles.favorite}><Icon name='ios-heart' size={26} color={'white'} onPress={null} /></View>
         </View>
     );
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
     header: {
         
         backgroundColor: Colors.primaryColor,
-        elevation: 10,                   // elevation problem
+        elevation: 10,                   
         width: '100%',
         height: '10%',
         flexDirection: 'row',    

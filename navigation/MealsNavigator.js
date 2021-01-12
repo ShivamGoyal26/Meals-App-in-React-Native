@@ -11,6 +11,16 @@ import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
 
+const Favoritestack = createStackNavigator();
+
+const FavoritesNavigator = () => 
+
+<Favoritestack.Navigator>
+<Favoritestack.Screen name="FavoritesStack" component={FavoritesScreen} options={{ headerShown: false }}/>
+<Favoritestack.Screen name ="FavoriteStackMealDetail" component={MealDetailScreen} options={{ headerShown: false }} />
+</Favoritestack.Navigator>
+
+
 
 const MealsNavigator = () =>
     <Stack.Navigator>
@@ -28,7 +38,6 @@ const MyTabs = () =>
             activeColor={Colors.primaryColor}
             inactiveColor={Colors.accentColor}
             barStyle={{ backgroundColor: 'white' }}
-            // barStyle={{ paddingBottom: 48 }}
         >
             <Tab.Screen name="Home"
                 component={MealsNavigator}
@@ -41,8 +50,8 @@ const MyTabs = () =>
 
                 }}
             />
-            <Tab.Screen name="Favotites"
-                component={FavoritesScreen}
+            <Tab.Screen name="Favorites"
+                component={FavoritesNavigator}
                 options={{
                     tabBarColor: Colors.accentColor,
                     tabBarLabel: 'Favorites',

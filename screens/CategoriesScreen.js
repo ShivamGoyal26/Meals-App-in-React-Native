@@ -24,6 +24,7 @@ const CategoriesScreen = props => {
                     });
                 }}
                 color={itemData.item.color}
+                imageUrl = {itemData.item.imageUrl}
             />
         );
     };
