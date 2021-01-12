@@ -31,7 +31,7 @@ const CategoriesScreen = props => {
 
     return (
         <View style={styles.wrapper}>
-            <MainHeader titleText="Meals App" onSelect={() => {
+            <MainHeader titleText="Meals" onSelect={() => {
                 props.navigation.toggleDrawer();
             }} />
             <FlatList

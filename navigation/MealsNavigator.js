@@ -15,12 +15,12 @@ const Stack = createStackNavigator();
 
 const Favoritestack = createStackNavigator();
 
-const FavoritesNavigator = () => 
+const FavoritesNavigator = () =>
 
-<Favoritestack.Navigator>
-<Favoritestack.Screen name="FavoritesStack" component={FavoritesScreen} options={{ headerShown: false }}/>
-<Favoritestack.Screen name ="FavoriteStackMealDetail" component={MealDetailScreen} options={{ headerShown: false }} />
-</Favoritestack.Navigator>
+    <Favoritestack.Navigator>
+        <Favoritestack.Screen name="FavoritesStack" component={FavoritesScreen} options={{ headerShown: false }} />
+        <Favoritestack.Screen name="FavoriteStackMealDetail" component={MealDetailScreen} options={{ headerShown: false }} />
+    </Favoritestack.Navigator>
 
 
 
@@ -33,49 +33,69 @@ const MealsNavigator = () =>
 
 const Tab = createMaterialBottomTabNavigator();
 
-const MyTabs = () => 
+const MyTabs = () =>
 
-    
-        <Tab.Navigator
-            activeColor={Colors.accentColor}
-            inactiveColor={Colors.primaryColor}
-            barStyle={{ backgroundColor: 'white' }}
-        >
-            <Tab.Screen name="Home"
-                component={MealsNavigator}
-                options={{
-                    tabBarColor: Colors.primaryColor,
-                    tabBarLabel: 'Meals',
-                    tabBarIcon: ({ color }) => (
-                        <Icon name="fast-food" color={color} size={26} />
-                    ),
 
-                }}
-            />
-            <Tab.Screen name="Favorites"
-                component={FavoritesNavigator}
-                options={{
-                    tabBarColor: Colors.accentColor,
-                    tabBarLabel: 'Favorites',
-                    tabBarIcon: ({ color }) => (
-                        <Icon name="ios-heart" color={color} size={26} />
-                    ),
+    <Tab.Navigator
+        activeColor={Colors.accentColor}
+        inactiveColor={Colors.primaryColor}
+        barStyle={{ backgroundColor: 'white' }}
+    >
+        <Tab.Screen name="Home"
+            component={MealsNavigator}
+            options={{
+                tabBarColor: Colors.primaryColor,
+                tabBarLabel: 'Meals',
+                tabBarIcon: ({ color }) => (
+                    <Icon name="fast-food" color={color} size={26} />
+                ),
 
-                }}
-            />
-        </Tab.Navigator>
- 
+            }}
+        />
+        <Tab.Screen name="Favorites"
+            component={FavoritesNavigator}
+            options={{
+                tabBarColor: Colors.accentColor,
+                tabBarLabel: 'Favorites',
+                tabBarIcon: ({ color }) => (
+                    <Icon name="ios-heart" color={color} size={26} />
+                ),
+
+            }}
+        />
+    </Tab.Navigator>
+
 
 
 const MainNavigator = createDrawerNavigator();
 
 const CustomDrawer = () =>
-<NavigationContainer>
-    <MainNavigator.Navigator>
-        <MainNavigator.Screen name="MainScreen" component={MyTabs} options={{ headerShown: false }} />
-        <MainNavigator.Screen name="Filters" component={Filters} options={{ headerShown: false }} />
-       
-    </MainNavigator.Navigator>
+    <NavigationContainer>
+        <MainNavigator.Navigator 
+        drawerContentOptions={{
+          activeTintColor: Colors.accentColor,
+        }}>
+        
+            <MainNavigator.Screen
+                name="MainScreen"
+                component={MyTabs}
+                
+                options={{
+                    drawerLabel: 'Meals',
+                    drawerIcon: () => <Icon name="ios-home-outline" size={26} />,
+                    // activeTintColor: Colors.accentColor,
+                    
+                }} />
+            
+            <MainNavigator.Screen 
+            name="Filters" 
+            component={Filters} 
+            options={{ 
+                drawerIcon: () => <Icon name="ios-filter" size={26} />,
+                activeTintColor: Colors.accentColor,
+                }} />
+
+        </MainNavigator.Navigator>
     </NavigationContainer>
 
 export default CustomDrawer;
