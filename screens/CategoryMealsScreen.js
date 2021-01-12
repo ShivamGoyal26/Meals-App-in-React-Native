@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList } from 'react-native';
 
 import { MEALS } from '../data/dummy-data';
 import MealItem from '../components/MealItem';
-import Header from '../shared/header';
+import CategoryItemHeader from '../shared/CategoryItemHeader';
 
 
 const CategoryMealScreen = (props) => {
@@ -33,7 +33,7 @@ const CategoryMealScreen = (props) => {
 
     return (
         <View style={styles.wrapper}>
-            <Header 
+            <CategoryItemHeader 
             titleText={CustomHeaderText}
             onSelect= {() => {
                 props.navigation.pop();

@@ -5,7 +5,7 @@ import {
     Text,
     StyleSheet,
     TouchableOpacity,
-    ImageBackground,
+    Image,
 } from 'react-native';
 import Colors from '../constants/Colors';
 
@@ -15,26 +15,27 @@ const MealItem = props => {
             <View style={styles.mealItem}>
                 <TouchableOpacity onPress={props.onSelectMeal}>
 
-                    <View>
+                    <View >
                         <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
-                            <ImageBackground source={{ uri: props.image }} style={styles.bgImage} >
-                                <View style={styles.titleContainer}>
-                                    <Text style={styles.title} numberOfLines={1}> {props.title} </Text>
-                                </View>
+                            <Image source={{ uri: props.image }} style={styles.bgImage} >
 
-                            </ImageBackground>
+                            </Image>
                         </View>
+                        <View style={styles.titleContainer}>
+                        <Text style={styles.headLine}>{props.title}</Text>
+                        </View>
+                       
                         <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
                             <View style={styles.littleDetails}>
-                                <MaterialIcons name='timer' size={26} color={Colors.accentColor} onPress={props.onSelect} />
+                                <MaterialIcons name='timer' size={26} color={Colors.primaryColor} onPress={props.onSelect} />
                                 <Text style={styles.textColor}> {props.duration}M</Text>
                             </View>
                             <View style={styles.littleDetails}>
-                                <MaterialIcons name='work' size={26} color={Colors.accentColor} onPress={props.onSelect} />
+                                <MaterialIcons name='work' size={26} color={Colors.primaryColor} onPress={props.onSelect} />
                                 <Text style={styles.textColor} > {props.complexity.toUpperCase()}</Text>
                             </View>
                             <View style={styles.littleDetails}>
-                                <MaterialIcons name='attach-money' size={26} color={Colors.accentColor} onPress={props.onSelect} />
+                                <MaterialIcons name='attach-money' size={26} color={Colors.primaryColor} onPress={props.onSelect} />
                                 <Text style={styles.textColor}> {props.affordability.toUpperCase()}</Text>
                             </View>
 
@@ -55,13 +56,18 @@ const styles = StyleSheet.create({
         marginBottom: 25,
     },
     mealHeader: {
-        height: '80%',
+        height: '70%',
     },
     mealDetail: {
         paddingHorizontal: 10,
         justifyContent: 'space-between',
         alignItems: 'center',
-        height: '20%',
+        height: '15%',
+    },
+    headLine:{
+        fontSize: 17,
+        color: '#C0C0C0',
+        
     },
     mealItem: {
         height: 300,
@@ -85,16 +91,12 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     titleContainer: {
-        backgroundColor: 'rgba(0,0,0,0.3)',
-        paddingVertical: 5,
-        paddingHorizontal: 12,
+        flexDirection: 'row',
+        alignItems: 'center',
+        height: '15%',
+        justifyContent: 'center',
     },
-    title: {
-        fontSize: 20,
-        color: 'white',
 
-        textAlign: 'center',
-    },
     littleDetails: {
         flexDirection: 'row',
         alignItems: 'center',
