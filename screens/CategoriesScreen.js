@@ -7,7 +7,6 @@ import {
 
 import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
-
 import MainHeader from '../shared/MainHeader';
 
 

@@ -1,17 +1,19 @@
 import React from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Colors from '../constants/Colors';
 
 const Header = props => {
     return(
-        <View style={styles.header}>
-        <View><Button title = "Back" onPress={props.onSelect} /></View>
+        <View style={styles.header}>  
+        <View style={styles.menu}><Icon name='chevron-back' size={26} color={'white'} onPress={props.onSelect} /></View>
             
         <View>
             <Text style={styles.headerText}>{props.titleText}</Text>
         </View>
-        <View><Button title = "Fav" onPress={props.onSelect} /></View>
+        {/* <View><Button title = "Fav" onPress={props.onSelect} /></View> */}
+        <View style={styles.favorite}><Icon name='ios-heart' size={26} color={'white'} onPress={null} /></View>
         </View>
     );
 };
@@ -36,6 +38,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         letterSpacing: 1,
+    },
+    favorite:{
+        padding: 10,
+    },
+    menu:{
+        padding: 10,
     },
 });
 

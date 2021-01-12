@@ -33,7 +33,7 @@ const MyTabs = () =>
                     tabBarColor: Colors.primaryColor,
                     tabBarLabel: 'Home',
                     tabBarIcon: ({ color }) => (
-                        <Icon name="ios-home" color={color} size={26} />
+                        <Icon name="home" color={color} size={26} />
                     ),
 
                 }}
@@ -44,7 +44,7 @@ const MyTabs = () =>
                     tabBarColor: Colors.accentColor,
                     tabBarLabel: 'Favorites',
                     tabBarIcon: ({ color }) => (
-                        <Icon name="ios-person" color={color} size={26} />
+                        <Icon name="ios-heart" color={color} size={26} />
                     ),
 
                 }}

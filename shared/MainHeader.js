@@ -1,21 +1,23 @@
 import React from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constants/Colors';
 
 const MainHeader = props => {
     return(
         <View style={styles.header}>
-        <View><Button title = "Drawer" onPress={() => {
+        <View style={styles.menu}><Icon name='md-menu' size={26} color={'white'} onPress={null} /></View>
+        {/* <View><Button title = "Drawer" onPress={() => {
                 props.navigation.popToTop();
-            }} /></View>
+            }} /></View> */}
             
         <View>
             <Text style={styles.headerText}>{props.titleText}</Text>
         </View>
-        <View><Button title = "Fav" onPress={() => {
+        {/* <View><Button title = "Fav" onPress={() => {
                 props.navigation.popToTop();
-            }} /></View>
+            }} /></View> */}
+            <View style={styles.favorite}><Icon name='ios-heart' size={26} color={'white'} onPress={null} /></View>
         </View>
     );
 };
@@ -40,6 +42,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         letterSpacing: 1,
+    },
+    favorite:{
+        padding: 10,
+    },
+    menu:{
+        padding: 10,
     },
 });
 
