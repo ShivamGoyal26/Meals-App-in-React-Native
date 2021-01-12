@@ -25,15 +25,18 @@ const MyTabs = () =>
 
     <NavigationContainer>
         <Tab.Navigator
-            activeColor="white"
+            activeColor={Colors.primaryColor}
+            inactiveColor={Colors.accentColor}
+            barStyle={{ backgroundColor: 'white' }}
+            // barStyle={{ paddingBottom: 48 }}
         >
             <Tab.Screen name="Home"
                 component={MealsNavigator}
                 options={{
                     tabBarColor: Colors.primaryColor,
-                    tabBarLabel: 'Home',
+                    tabBarLabel: 'Meals',
                     tabBarIcon: ({ color }) => (
-                        <Icon name="home" color={color} size={26} />
+                        <Icon name="fast-food" color={color} size={26} />
                     ),
 
                 }}
