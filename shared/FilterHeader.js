@@ -20,7 +20,8 @@ const FilterHeader = props => {
 
 const styles = StyleSheet.create({
     header: {
-        
+        alignContent: 'center',
+        alignItems: 'center',
         backgroundColor: Colors.primaryColor,
         elevation: 10,                 
         width: '100%',

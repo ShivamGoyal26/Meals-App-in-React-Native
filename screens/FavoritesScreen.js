@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import FavoriteHeader from '../shared/FavoritesHeader';
+// import FavoriteHeader from '../shared/FavoritesHeader';
+import FilterHeader from '../shared/FilterHeader';
 import { MEALS } from '../data/dummy-data';
 import MealItem from '../components/MealItem';
 
@@ -25,7 +26,9 @@ const FavoritesScreen = props => {
     );
     return (
         <View style={styles.screen}>
-        <FavoriteHeader titleText="Your Favorites"/>
+        <FilterHeader titleText="Your Favorites" onSelect={() => {
+                props.navigation.toggleDrawer();
+            }}/>
             
             <View style={styles.nestedScreen}>
                 <FlatList data={favMeals}
