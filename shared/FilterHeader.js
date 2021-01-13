@@ -20,7 +20,9 @@ const FilterHeader = props => {
             <View style={styles.alginit}>
                 <Text style={styles.headerText}>{props.titleText}</Text>
             </View>
-            <View style={styles.menu}></View>
+            <View style={styles.menu}>
+            <Text style={styles.menu}></Text>
+            </View>
 
         </View>
     );

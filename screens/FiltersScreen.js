@@ -8,7 +8,10 @@ const FiltersScreen = props => {
             <FilterHeader titleText='Filters' onSelect={() => {
                 props.navigation.toggleDrawer();
             }} />
+            <View style={styles.container}>
             <Text>The Filters Screen</Text>
+            </View>
+           
         </View>
     );
 };
@@ -16,6 +19,11 @@ const FiltersScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
+    },
+    container:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent:'center',
     },
 });
 

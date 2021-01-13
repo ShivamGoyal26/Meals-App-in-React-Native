@@ -38,7 +38,7 @@ const MyTabs = () =>
 
     <Tab.Navigator
         activeColor={Colors.accentColor}
-        inactiveColor={Colors.primaryColor}
+        inactiveColor='#C0C0C0'
         barStyle={{ backgroundColor: 'white' }}
     >
         <Tab.Screen name="Home"
@@ -83,7 +83,6 @@ const CustomDrawer = () =>
                 options={{
                     drawerLabel: 'Meals',
                     drawerIcon: () => <Icon name="ios-home-outline" size={26} />,
-                    // activeTintColor: Colors.accentColor,
                     
                 }} />
             
