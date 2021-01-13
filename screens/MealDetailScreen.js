@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     textColor: {
         color: Colors.primaryColor,
         fontWeight: 'bold',
+        marginVertical: 4,
     },
     littleDetails: {
         flexDirection: 'row',
