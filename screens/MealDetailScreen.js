@@ -45,8 +45,19 @@ const MealDetailScreen = props => {
                             <Text style={styles.textColor}> {selectedMeal.affordability.toUpperCase()}</Text>
                             </View>
                             </View>
-                            <View style={styles.ingredientswrapper}><Text style={styles.ingredients}>INGREDIENTS</Text></View>
-                            <View style={styles.ingredientswrapper}><Text style={styles.ingredients}>STEPS</Text></View>
+                            <View style={styles.ingredientswrapper}>
+                            <Text style={styles.ingredients}>INGREDIENTS</Text>
+                            
+                            </View>
+                            <View style={styles.detail}>
+                            {selectedMeal.ingredients.map(ingredient => <Text style={styles.textColor} key={ingredient}>{ingredient}</Text>)}
+                            </View>
+                            <View style={styles.ingredientswrapper}><Text style={styles.ingredients}>STEPS</Text>
+                            
+                            </View>
+                            <View style={styles.detail}>
+                            {selectedMeal.steps.map(step => <Text style={styles.textColor} key={step}>{step}</Text>)}
+                            </View>
                             </View>
                             
             </ScrollView>
@@ -100,11 +111,19 @@ const styles = StyleSheet.create({
 
     ingredientswrapper: {
         alignItems: 'center',
+        marginVertical: 10,
     },
 
     ingredients:{
         fontSize: 20,
-        color: '#C0C0C0',
+        color: 'black',
+    },
+    detail:{
+        marginVertical: 10,
+        borderColor: '#C0C0C0',
+        borderWidth: 1,
+        borderRadius: 10,
+        padding: 10,
     },
 });
 
