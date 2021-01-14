@@ -15,14 +15,11 @@ const FilterHeader = props => {
                 <View style={styles.menu}><Icon name='md-menu' size={26} color={'white'} /></View>
             </TouchableOpacity>
 
+            <View style={styles.alginit}><Text style={styles.headerText}>{props.titleText}</Text></View>
 
-
-            <View style={styles.alginit}>
-                <Text style={styles.headerText}>{props.titleText}</Text>
-            </View>
-            <View style={styles.menu}>
-            <Text style={styles.menu}></Text>
-            </View>
+            <TouchableOpacity onPress={props.onSave}>
+                <View style={styles.menu}><Icon name='ios-save' size={26} color={'white'} /></View>
+            </TouchableOpacity>
 
         </View>
     );

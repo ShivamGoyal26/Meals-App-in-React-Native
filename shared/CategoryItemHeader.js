@@ -20,7 +20,9 @@ const CategoryItemHeader = props => {
             <View>
                 <Text style={styles.headerText}>{props.titleText}</Text>
             </View>
-            <View style={styles.favorite}></View>
+            <View style={styles.favorite}>
+                <Text style={styles.favorite}></Text>
+            </View>
         </View>
     );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import FilterHeader from '../shared/FilterHeader';
 import Colors from '../constants/Colors';
@@ -18,20 +18,33 @@ const FilterSwitch = props => {
 };
 
 const FiltersScreen = props => {
+
+    const saveFilters = () => {
+        const appliedFilters = {
+            glutenFree: isGlutenFree,
+            lactoseFree: isLactoseFree,
+            vegan: isVegan,
+            isVegetarian: isVegetarian,
+        }
+    
+        console.log(appliedFilters);
+    };
+    
     const [isGlutenFree, setIsGlutenFree] = useState(false);
     const [isLactoseFree, setIsLactoseFree] = useState(false);
     const [isVegan, setIsVegan] = useState(false);
     const [isVegetarian, setIsVegetarian] = useState(false);
+
     return (
         <View style={styles.screen}>
-            <FilterHeader titleText='Filters' onSelect={() => {
-                props.navigation.toggleDrawer();
-            }} />
+            <FilterHeader titleText='Filters'
+                onSelect={() => {
+                    props.navigation.toggleDrawer(); }}
+                    onSave = {() => {saveFilters()}}
+                     />
 
             <View style={styles.filterScreen}>
                 <Text style={styles.title}>Available Filters</Text>
-
-
 
                 <FilterSwitch lable="Gluten-Free"
                     state={isGlutenFree}
@@ -54,7 +67,6 @@ const FiltersScreen = props => {
                 />
 
             </View>
-
         </View>
     );
 };
