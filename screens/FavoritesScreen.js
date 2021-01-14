@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import { View, StyleSheet, FlatList, Text } from 'react-native';
 import FavoritesHeader from '../shared/FavoritesHeader';
 import MealItem from '../components/MealItem';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const FavoritesScreen = props => {
     const avaliableMeals = useSelector(state => state.meals.favoriteMeals);
+
+
 
     const renderMealItem = itemData => {
         return <MealItem title={
@@ -21,12 +23,25 @@ const FavoritesScreen = props => {
             image={itemData.item.imageUrl}
         />;
     };
+    if (avaliableMeals.length === 0 || !avaliableMeals) {
+        return (
+            <View style={styles.screen}>
+                <FavoritesHeader titleText="Your Favorites" onSelect={() => {
+                    props.navigation.toggleDrawer();
+                }} />
+                <View style={styles.nestedScreen}>
+                    <Text>No favorite meals found. Start adding some!</Text>
+                </View>
+            </View>
+        );
+    }
     return (
+
         <View style={styles.screen}>
-        <FavoritesHeader titleText="Your Favorites" onSelect={() => {
+            <FavoritesHeader titleText="Your Favorites" onSelect={() => {
                 props.navigation.toggleDrawer();
-            }}/>
-            
+            }} />
+
             <View style={styles.nestedScreen}>
                 <FlatList data={avaliableMeals}
                     keyExtractor={(item, index) => item.id}
@@ -34,8 +49,6 @@ const FavoritesScreen = props => {
                     style={{ width: '100%' }}
                 />
             </View>
-        
-
         </View>
     );
 };
@@ -52,6 +65,11 @@ const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
         flexDirection: 'column',
+    },
+    content: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });
 
