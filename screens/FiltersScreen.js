@@ -2,6 +2,10 @@ import React, { useState} from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import FilterHeader from '../shared/FilterHeader';
 import Colors from '../constants/Colors';
+import {useDispatch} from 'react-redux';
+import {Snackbar} from 'react-native-paper'
+
+import {setFilters} from '../store/actions/meal';
 
 const FilterSwitch = props => {
     return (
@@ -17,6 +21,7 @@ const FilterSwitch = props => {
     );
 };
 
+
 const FiltersScreen = props => {
 
     const saveFilters = () => {
@@ -24,16 +29,20 @@ const FiltersScreen = props => {
             glutenFree: isGlutenFree,
             lactoseFree: isLactoseFree,
             vegan: isVegan,
-            isVegetarian: isVegetarian,
+            vegetarian: isVegetarian,
         }
-    
-        console.log(appliedFilters);
+        dispatch(setFilters(appliedFilters));
+        setVisible(true);
     };
     
     const [isGlutenFree, setIsGlutenFree] = useState(false);
     const [isLactoseFree, setIsLactoseFree] = useState(false);
     const [isVegan, setIsVegan] = useState(false);
     const [isVegetarian, setIsVegetarian] = useState(false);
+    const [visible, setVisible] = useState(false);
+
+    const dispatch = useDispatch(); 
+    const onDismissSnackBar = () => setVisible(false);
 
     return (
         <View style={styles.screen}>
@@ -41,8 +50,22 @@ const FiltersScreen = props => {
                 onSelect={() => {
                     props.navigation.toggleDrawer(); }}
                     onSave = {() => {saveFilters()}}
+                    
                      />
-
+      <Snackbar
+        visible={visible}
+        
+        onDismiss={onDismissSnackBar}
+        action={{
+          label: 'Okay',
+          onPress: () => {
+            // onDismissSnackBar();
+          },
+        }}
+        >
+        Filters has been applied successfully!
+      </Snackbar>
+     
             <View style={styles.filterScreen}>
                 <Text style={styles.title}>Available Filters</Text>
 
@@ -72,6 +95,7 @@ const FiltersScreen = props => {
 };
 
 const styles = StyleSheet.create({
+    
     screen: {
         flex: 1,
     },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, Text } from 'react-native';
 import {useSelector} from 'react-redux'
 import MealItem from '../components/MealItem';
 import CategoryItemHeader from '../shared/CategoryItemHeader';
@@ -31,6 +31,22 @@ const CategoryMealScreen = (props) => {
         meal => meal.categoryIds.indexOf(catid) >= 0
     );
 
+    if(displayedMeals.length === 0){
+        return(
+            <View style={styles.wrapper}>
+            <CategoryItemHeader 
+            titleText={CustomHeaderText}
+            onSelect= {() => {
+                props.navigation.pop();
+            }} />
+             <View style = {styles.content}>
+            <Text>No meals Found, may be check your filters!</Text>
+        </View>
+        </View>
+        );
+       
+    }
+
 
     return (
         <View style={styles.wrapper}>
@@ -54,6 +70,11 @@ const CategoryMealScreen = (props) => {
 
 
 const styles = StyleSheet.create({
+    content: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     screen: {
         flex: 1,
         justifyContent: 'center',
@@ -61,7 +82,6 @@ const styles = StyleSheet.create({
     },
     wrapper: {
         flex: 1,
-        flexDirection: 'column',
     },
 });
 
