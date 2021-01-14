@@ -1,3 +1,4 @@
+// Meals App 
 import React from 'react';
 import MealsNavigator from './navigation/MealsNavigator';
 import {createStore, combineReducers} from 'redux';
