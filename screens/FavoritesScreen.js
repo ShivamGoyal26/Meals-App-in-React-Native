@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import FilterHeader from '../shared/FilterHeader';
+import FavoritesHeader from '../shared/FavoritesHeader';
 import MealItem from '../components/MealItem';
 import {useSelector} from 'react-redux';
 
@@ -21,12 +21,9 @@ const FavoritesScreen = props => {
             image={itemData.item.imageUrl}
         />;
     };
-    // const favMeals = MEALS.filter(
-    //     meal => meal.id === 'm1' || meal.id === 'm2'
-    // );
     return (
         <View style={styles.screen}>
-        <FilterHeader titleText="Your Favorites" onSelect={() => {
+        <FavoritesHeader titleText="Your Favorites" onSelect={() => {
                 props.navigation.toggleDrawer();
             }}/>
             

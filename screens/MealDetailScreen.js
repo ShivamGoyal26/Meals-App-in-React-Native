@@ -9,13 +9,22 @@ import {
  import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
  import Colors from '../constants/Colors';
 import Header from '../shared/header';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {toggleFavorite} from '../store/actions/meal';
 
 const MealDetailScreen = props => {
 
     const avaliableMeals = useSelector(state => state.meals.meals);
 
     const mealId = props.route.params.mealid;
+
+    const dispatch = useDispatch();
+
+   const currentMealIsFavorite = useSelector(state => state.meals.favoriteMeals.some(meal => meal.id === mealId));
+
+    const toggleFavoriteHandler = () => {
+        dispatch(toggleFavorite(mealId));
+    };
 
     const selectedMeal = avaliableMeals.find(meal => meal.id === mealId);
     return (
@@ -25,7 +34,10 @@ const MealDetailScreen = props => {
                 titleText={selectedMeal.title}
                 onSelect={() => {
                     props.navigation.pop();
-                }} />
+                }} 
+                onFav = {() => {toggleFavoriteHandler()}}
+                getIcon = {currentMealIsFavorite ? 'heart' : 'heart-outline'}
+                />
             <ScrollView>
             <View style={styles.scrollViewWrapper}>
             <View style={styles.imageThing}>
