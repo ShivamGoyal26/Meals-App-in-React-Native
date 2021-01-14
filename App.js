@@ -2,13 +2,19 @@ import React from 'react';
 import MealsNavigator from './navigation/MealsNavigator';
 import {createStore, combineReducers} from 'redux';
 import mealReducer from './store/reducers/meals';
+import {Provider} from 'react-redux'
 
-const rootReducer = combineReducers();
+const rootReducer = combineReducers({
+  meals: mealReducer,
+});
 
-const store = createStore();
+const store = createStore(rootReducer);
 
 export default function APP() {
   return (
-    <MealsNavigator />
+    <Provider store = {store}>
+      <MealsNavigator />
+    </Provider>
+    
   );
 }

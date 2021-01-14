@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-// import FavoriteHeader from '../shared/FavoritesHeader';
 import FilterHeader from '../shared/FilterHeader';
-import { MEALS } from '../data/dummy-data';
 import MealItem from '../components/MealItem';
+import {useSelector} from 'react-redux';
 
 const FavoritesScreen = props => {
+    const avaliableMeals = useSelector(state => state.meals.favoriteMeals);
 
     const renderMealItem = itemData => {
         return <MealItem title={
@@ -21,9 +21,9 @@ const FavoritesScreen = props => {
             image={itemData.item.imageUrl}
         />;
     };
-    const favMeals = MEALS.filter(
-        meal => meal.id === 'm1' || meal.id === 'm2'
-    );
+    // const favMeals = MEALS.filter(
+    //     meal => meal.id === 'm1' || meal.id === 'm2'
+    // );
     return (
         <View style={styles.screen}>
         <FilterHeader titleText="Your Favorites" onSelect={() => {
@@ -31,7 +31,7 @@ const FavoritesScreen = props => {
             }}/>
             
             <View style={styles.nestedScreen}>
-                <FlatList data={favMeals}
+                <FlatList data={avaliableMeals}
                     keyExtractor={(item, index) => item.id}
                     renderItem={renderMealItem}
                     style={{ width: '100%' }}

@@ -6,17 +6,18 @@ import {
     ScrollView,
     Image,
  } from 'react-native';
-import { color } from 'react-native-reanimated';
  import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
  import Colors from '../constants/Colors';
-
-import { MEALS } from '../data/dummy-data';
 import Header from '../shared/header';
+import {useSelector} from 'react-redux';
 
 const MealDetailScreen = props => {
+
+    const avaliableMeals = useSelector(state => state.meals.meals);
+
     const mealId = props.route.params.mealid;
 
-    const selectedMeal = MEALS.find(meal => meal.id === mealId);
+    const selectedMeal = avaliableMeals.find(meal => meal.id === mealId);
     return (
 
         <View style={styles.wrapper}>
