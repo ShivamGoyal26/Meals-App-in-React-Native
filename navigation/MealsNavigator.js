@@ -37,7 +37,7 @@ const MyTabs = () =>
 
 
     <Tab.Navigator
-        activeColor={Colors.accentColor}
+        activeColor={Colors.primaryColor}
         inactiveColor='#C0C0C0'
         barStyle={{ backgroundColor: 'white' }}
     >
@@ -73,7 +73,7 @@ const CustomDrawer = () =>
     <NavigationContainer>
         <MainNavigator.Navigator 
         drawerContentOptions={{
-          activeTintColor: Colors.accentColor,
+          activeTintColor: Colors.primaryColor,
         }}>
         
             <MainNavigator.Screen
@@ -91,7 +91,7 @@ const CustomDrawer = () =>
             component={Filters} 
             options={{ 
                 drawerIcon: () => <Icon name="ios-filter" size={26} />,
-                activeTintColor: Colors.accentColor,
+                activeTintColor: Colors.primaryColor,
                 }} />
 
         </MainNavigator.Navigator>

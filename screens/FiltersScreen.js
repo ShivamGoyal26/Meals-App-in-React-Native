@@ -50,18 +50,23 @@ const FiltersScreen = props => {
                 onSelect={() => {
                     props.navigation.toggleDrawer(); }}
                     onSave = {() => {saveFilters()}}
-                    
                      />
       <Snackbar
+      duration = {1000}
+      theme ={{
+        colors: {
+      onSurface: Colors.primaryColor,
+      surface: "white",
+    },
+      }}
         visible={visible}
-        
         onDismiss={onDismissSnackBar}
-        action={{
-          label: 'Okay',
-          onPress: () => {
-            // onDismissSnackBar();
-          },
-        }}
+        // action={{
+        //   label: 'Okay',
+        //   onPress: () => {
+        //     // onDismissSnackBar();
+        //   },
+        // }}
         >
         Filters has been applied successfully!
       </Snackbar>
